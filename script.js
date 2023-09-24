@@ -1,12 +1,99 @@
 const nextButton = document.getElementById('next-button')
-
+const saveButton = document.getElementById('saveButton')
 const userCard = document.getElementById('user-card')
+const savePage = document.getElementById('user-container')
+const savebtn = document.getElementById('save-page')
+const generatebtn = document.getElementById('generate-page')
 
 async function fetchUserData() {
   try {
-    const response = await fetch('https://random-data-api.com/api/v2/users')
-    const userData = await response.json()
+    let response = await fetch('https://random-data-api.com/api/v2/users')
+    userData = await response.json()
+
+    console.log('New Data' + JSON.stringify(userData))
+
+    //Display data
     displayUserData(userData)
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
+}
+
+//Save in Local Storage
+document.getElementById('saveButton').addEventListener('click', () => {
+  let savedData = localStorage.getItem('userData')
+  // If no data exists in local storage, initialize it as an empty array
+  if (!savedData) {
+    savedData = []
+  } else {
+    // Parse the existing data if it exists
+    savedData = JSON.parse(savedData)
+  }
+  // Append the new user data to the existing data
+  savedData.push(userData)
+
+  // Save the updated data back to local storage
+  localStorage.setItem('userData', JSON.stringify(savedData))
+  console.log('Data saved to local storage:', saveUser)
+})
+
+document.getElementById('save-page').addEventListener('click', () => {
+  userCard.style.display = 'none'
+  savePage.style.display = 'flex'
+  saveButton.disabled = true
+  nextButton.disabled = true
+  fetchAndDisplayUserList()
+  console.log('user-card Save ' + userCard.style.display)
+  console.log('save-page Save ' + savePage.style.display)
+})
+
+document.getElementById('generate-page').addEventListener('click', () => {
+  userCard.style.display = 'flex'
+  savePage.innerHTML = ''
+  saveButton.disabled = false
+  nextButton.disabled = false
+  fetchUserData()
+  console.log('user-card generate ' + userCard.style.display)
+  console.log('save-page generate ' + savePage.style.display)
+})
+
+async function fetchAndDisplayUserList() {
+  try {
+    const users = JSON.parse(localStorage.getItem('userData'))
+    const userContainer = document.getElementById('user-container')
+
+    users.forEach((user) => {
+      const userCard = document.createElement('div')
+      userCard.className = 'user-card1'
+
+      // image  Name Gender
+      const avatarImage = document.createElement('img')
+      avatarImage.src = user.avatar
+      avatarImage.className = 'user-avatar1'
+
+      const username = document.createElement('p')
+      username.textContent = `Name : ${user.first_name}`
+
+      // const profileLink = document.createElement('a')
+      // profileLink.textContent = `Email`
+      // profileLink.href = user.email
+      // profileLink.target = '_blank'
+
+      const email = document.createElement('p')
+      email.textContent = `Email: ${userData.email}`
+
+      const contact = document.createElement('p')
+      contact.textContent = `Contact: ${userData.phone_number}`
+
+      userCard.appendChild(avatarImage)
+      userCard.appendChild(username)
+      userCard.appendChild(contact)
+      userCard.appendChild(email)
+
+      // Fetch additional user info (followers and following)
+
+      userContainer.appendChild(userCard)
+    })
   } catch (error) {
     console.error('Error fetching data:', error)
   }
@@ -21,9 +108,7 @@ function displayUserData(userData) {
                 <div class="user-data-field">
                     <span class="user-data-label">ID:</span> ${userData.id}
                 </div>
-                <div class="user-data-field">
-                    <span class="user-data-label">UID:</span> ${userData.uid}
-                </div>
+              
                 <div class="user-data-field">
                     <span class="user-data-label">Password:</span> ${userData.password}
                 </div>
@@ -42,39 +127,17 @@ function displayUserData(userData) {
                 <div class="user-data-field">
                     <span class="user-data-label">Gender:</span> ${userData.gender}
                 </div>
-                <div class="user-data-field">
-                    <span class="user-data-label">Phone Number:</span> ${userData.phone_number}
-                </div>
+               
                 <div class="user-data-field">
                     <span class="user-data-label">Date of Birth:</span> ${userData.date_of_birth}
                 </div>
 
-                <div class="user-data-field">
-                    <span class="user-data-label">Social Insurance Number:</span> ${userData.social_insurance_number}
-                </div>
-                <div class="user-data-field">
-                    <span class="user-data-label">Employment Title:</span> ${userData.employment.title}
-                </div>
-                <div class="user-data-field">
-                    <span class="user-data-label">Employment Key Skill:</span> ${userData.employment.key_skill}
-                </div>
+               
                                 </div>
 
                         <div class="user-data-right">
-
-                <div class="user-data-field">
-                    <span class="user-data-label">Address:</span>
-                    <div class="user-data-field">City: ${userData.address.city}</div>
-                    <div class="user-data-field">Street Name: ${userData.address.street_name}</div>
-                    <div class="user-data-field">Street Address: ${userData.address.street_address}</div>
-                    <div class="user-data-field">Zip Code: ${userData.address.zip_code}</div>
-                    <div class="user-data-field">State: ${userData.address.state}</div>
-                    <div class="user-data-field">Country: ${userData.address.country}</div>
-                </div>
-                <div class="user-data-field">
-                    <span class="user-data-label">Coordinates:</span>
-                    <div class="user-data-field">Latitude: ${userData.address.coordinates.lat}</div>
-                    <div class="user-data-field">Longitude: ${userData.address.coordinates.lng}</div>
+ <div class="user-data-field">
+                    <span class="user-data-label">Phone Number:</span> ${userData.phone_number}
                 </div>
                 <div class="user-data-field">
                     <span class="user-data-label">Credit Card Number:</span> ${userData.credit_card.cc_number}
@@ -95,6 +158,6 @@ function displayUserData(userData) {
                 <!-- Add more data fields here -->
             `
 }
-nextButton.addEventListener('click', displayUserData)
+nextButton.addEventListener('click', fetchUserData)
 
 fetchUserData()

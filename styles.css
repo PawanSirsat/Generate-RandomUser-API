@@ -5,6 +5,51 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.user-card1 {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+  display: block;
+}
+
+.user-card1:hover {
+  transform: scale(1.05);
+}
+
+.user-avatar1 {
+  max-width: 100px; /* Set the desired max width */
+  height: auto;
+  border-radius: 50%;
+}
+
+.user-card1 a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.user-card1 a:hover {
+  text-decoration: underline;
+}
+
+.user-card1 p {
+  margin: 10px 0;
+}
+
 .user-data-left,
 .user-data-right {
   width: 45%; /* Adjust the width as needed */
@@ -35,13 +80,6 @@ body {
 
 .user-data-label {
   font-weight: bold;
-}
-#next-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 34px;
-  cursor: pointer;
 }
 
 .navbar-expand-lg {
