@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.user-data-left,
+.user-data-right {
+  width: 45%; /* Adjust the width as needed */
+}
+.user-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 600px; /* Increased card width for two columns */
+  padding: 20px;
+  margin: 20px auto;
+  text-align: left;
+  display: flex; /* Use flexbox to create two columns */
+  justify-content: space-between; /* Space between the columns */
+}
+
+.user-card img {
+  max-width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid rgb(24, 99, 157); /* Add this line for the black border */
+}
+
+.user-data-field {
+  margin: 10px 0;
+}
+
+.user-data-label {
+  font-weight: bold;
+}
+#next-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.navbar-expand-lg {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.user-image {
+  width: 116px;
+  margin-right: 20px;
+  height: 100px;
+}
