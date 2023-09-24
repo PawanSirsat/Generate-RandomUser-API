@@ -23,7 +23,6 @@ body {
   padding: 20px;
   text-align: center;
   transition: transform 0.2s;
-  display: block;
 }
 
 .user-card1:hover {
@@ -65,8 +64,11 @@ body {
   text-align: left;
   display: flex; /* Use flexbox to create two columns */
   justify-content: space-between; /* Space between the columns */
+  transition: transform 0.2s;
 }
-
+.user-card:hover {
+  transform: scale(1.05);
+}
 .user-card img {
   max-width: 100px;
   height: 100px;

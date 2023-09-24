@@ -6,6 +6,8 @@ const savebtn = document.getElementById('save-page')
 const generatebtn = document.getElementById('generate-page')
 
 async function fetchUserData() {
+  generatebtn.disabled = true
+  generatebtn.style.color = '#007bff'
   try {
     let response = await fetch('https://random-data-api.com/api/v2/users')
     userData = await response.json()
@@ -38,10 +40,16 @@ document.getElementById('saveButton').addEventListener('click', () => {
 })
 
 document.getElementById('save-page').addEventListener('click', () => {
+  savebtn.disabled = true
+  savebtn.style.color = '#007bff'
+  generatebtn.style.color = '#f4f4f4'
+
   userCard.style.display = 'none'
   savePage.style.display = 'flex'
   saveButton.disabled = true
   nextButton.disabled = true
+  generatebtn.disabled = false
+
   fetchAndDisplayUserList()
   console.log('user-card Save ' + userCard.style.display)
   console.log('save-page Save ' + savePage.style.display)
@@ -52,6 +60,9 @@ document.getElementById('generate-page').addEventListener('click', () => {
   savePage.innerHTML = ''
   saveButton.disabled = false
   nextButton.disabled = false
+  savebtn.disabled = false
+  savebtn.style.color = '#f4f4f4'
+
   fetchUserData()
   console.log('user-card generate ' + userCard.style.display)
   console.log('save-page generate ' + savePage.style.display)
