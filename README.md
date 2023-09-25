@@ -1,9 +1,10 @@
-# Generate-RandomUser-API
-RandomUserGenerator is a web application that utilizes a random user data API to generate and display detailed user profiles
-# Link
+
+# Live Demo
 # https://pawansirsat.github.io/Generate-RandomUser-API/
 
-## How This Process Works
+# 
+ Generate-RandomUser-API
+RandomUserGenerator is a web application that utilizes a random user data API to generate and display detailed user profiles## How This Process Works
 
 Here's a basic outline of how this process works:
 
