@@ -17,3 +17,11 @@ Here's a basic outline of how this process works:
 
 By following these steps, web developers can seamlessly integrate data from external APIs into their applications, providing users with dynamic and up-to-date content.
 
+# Generate Page
+![image](https://github.com/PawanSirsat/Generate-RandomUser-API/assets/48860105/c737510e-48f3-4784-885c-93b3606c160c)
+
+
+# locally Save Data
+![image](https://github.com/PawanSirsat/Generate-RandomUser-API/assets/48860105/755fab5c-34dc-4ecf-9408-f2651de108c5)
+
+
