@@ -36,7 +36,7 @@ document.getElementById('saveButton').addEventListener('click', () => {
 
   // Save the updated data back to local storage
   localStorage.setItem('userData', JSON.stringify(savedData))
-  console.log('Data saved to local storage:', saveUser)
+  // console.log('Data saved to local storage:', savedData)
 })
 
 document.getElementById('save-page').addEventListener('click', () => {
