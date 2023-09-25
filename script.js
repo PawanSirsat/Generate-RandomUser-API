@@ -100,7 +100,9 @@ const userid = document.createElement('p')
       contact.textContent = `Contact: ${userData.phone_number}`
 
       userCard.appendChild(avatarImage)
+userCard.appendChild(userid)
       userCard.appendChild(username)
+
       userCard.appendChild(contact)
       userCard.appendChild(email)
 
