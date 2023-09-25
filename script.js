@@ -82,6 +82,9 @@ async function fetchAndDisplayUserList() {
       avatarImage.src = user.avatar
       avatarImage.className = 'user-avatar1'
 
+const userid = document.createElement('p')
+      userid.textContent = `ID : ${user.id}`
+
       const username = document.createElement('p')
       username.textContent = `Name : ${user.first_name}`
 
