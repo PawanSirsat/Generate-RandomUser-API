@@ -1,6 +1,9 @@
 
 # Live Demo
 # https://pawansirsat.github.io/Generate-RandomUser-API/
+![image](https://github.com/PawanSirsat/Generate-RandomUser-API/assets/48860105/4a2cb0e6-6024-4544-bce1-22ae0af0a208)
+![image](https://github.com/PawanSirsat/Generate-RandomUser-API/assets/48860105/ee8f7d89-02c8-45b2-b4ff-1f59f567f333)
+
 
 # 
  Generate-RandomUser-API
